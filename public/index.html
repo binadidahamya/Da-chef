@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#13110f" />
+  <meta name="description" content="Da Chef - fresh flavours, warm plates and memorable dining." />
+  <title>Da Chef | Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#12100e;--panel:#1b1815;--soft:#24201c;--cream:#f7f1e7;
+      --muted:#c9bdaf;--accent:#e9a23b;--accent2:#f5c66d;--line:rgba(255,255,255,.09);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--cream);line-height:1.6}
+    img{display:block;width:100%;object-fit:cover}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1160px,92%);margin:auto}
+    .nav{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(18,16,14,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-family:"Playfair Display",serif;font-size:1.8rem;font-weight:700}.brand span{color:var(--accent)}
+    .links{display:flex;gap:26px;align-items:center;color:#eee4d6;font-size:.95rem}
+    .links a:hover{color:var(--accent2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;font-weight:700;transition:.25s}
+    .btn-primary{background:var(--accent);color:#17120c}.btn-primary:hover{transform:translateY(-2px);background:var(--accent2)}
+    .btn-outline{border:1px solid rgba(255,255,255,.25)}.btn-outline:hover{border-color:var(--accent);color:var(--accent2)}
+    .menu-btn{display:none;background:none;border:0;color:white;font-size:1.7rem}
+    .hero{min-height:100vh;display:grid;align-items:center;padding-top:74px;position:relative;overflow:hidden;background:
+      linear-gradient(90deg,rgba(12,10,9,.95) 0%,rgba(12,10,9,.72) 52%,rgba(12,10,9,.18) 100%),
+      url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85') center/cover}
+    .hero-content{max-width:710px;padding:80px 0}
+    .eyebrow{display:inline-block;color:var(--accent2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:700;margin-bottom:18px}
+    h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.1}
+    h1{font-size:clamp(3.2rem,7vw,6.5rem);max-width:760px}
+    .hero p{font-size:1.12rem;color:#d7ccbf;max-width:610px;margin:24px 0 32px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-badge{margin-top:34px;display:flex;gap:28px;flex-wrap:wrap;color:#d5cabd}
+    .hero-badge strong{display:block;color:#fff;font-size:1.15rem}
+    section{padding:96px 0}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 46px}.section-head h2{font-size:clamp(2.3rem,4vw,4rem);margin-bottom:14px}.section-head p{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .card img{height:250px}.card-body{padding:22px}.card h3{font-size:1.5rem;margin-bottom:7px}.card p{color:var(--muted);font-size:.95rem}.price{margin-top:14px;color:var(--accent2);font-weight:800}
+    .menu-section{background:#171411}
+    .tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+    .tab{border:1px solid var(--line);background:var(--soft);color:#e7dccf;padding:9px 16px;border-radius:999px;cursor:pointer}.tab.active{background:var(--accent);color:#1b1308}
+    .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 34px}
+    .menu-item{display:flex;justify-content:space-between;gap:20px;border-bottom:1px dashed rgba(255,255,255,.12);padding:17px 0}
+    .menu-item h4{font-size:1.02rem;margin-bottom:3px}.menu-item p{color:var(--muted);font-size:.87rem}.menu-item .m-price{color:var(--accent2);font-weight:800;white-space:nowrap}
+    .about{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+    .about img{height:520px;border-radius:28px}
+    .about h2{font-size:clamp(2.4rem,4vw,4.2rem);margin:8px 0 20px}.about p{color:var(--muted);margin-bottom:18px}
+    .feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+    .feature{padding:18px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}.feature strong{display:block;color:var(--accent2);font-size:1.15rem}
+    .visit{background:linear-gradient(135deg,#1c1713,#261b11);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px}.visit h2{font-size:clamp(2.3rem,4vw,4rem);margin-bottom:16px}.visit p{color:var(--muted)}
+    .info-box{background:rgba(255,255,255,.04);padding:28px;border-radius:22px;border:1px solid var(--line)}
+    .info-row{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--line)}.info-row:last-child{border:0}.info-row span:last-child{color:var(--accent2)}
+    footer{padding:32px 0;color:#aa9f91}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:28px}
+    .reveal{opacity:0;transform:translateY(20px);transition:.65s ease}.reveal.show{opacity:1;transform:none}
+
+    .reservation-form{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .reservation-form label{display:block;color:var(--muted);font-size:.9rem;margin-bottom:6px}
+    .reservation-form input,.reservation-form select,.reservation-form textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#171411;color:var(--cream);font:inherit}
+    .reservation-form .full{grid-column:1/-1}
+    .reservation-form button{border:0;cursor:pointer;font:inherit}
+    #booking-message{margin-top:12px;color:var(--accent2);min-height:1.5em}
+    @media(max-width:560px){.reservation-form{grid-template-columns:1fr}.reservation-form .full{grid-column:auto}}
+
+    @media(max-width:850px){
+      .links{position:absolute;top:74px;left:0;right:0;background:#15120f;flex-direction:column;align-items:flex-start;padding:24px 5%;display:none;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu-btn{display:block}
+      .cards,.menu-grid,.about,.visit-grid{grid-template-columns:1fr}.about img{height:390px}.feature-row{grid-template-columns:1fr}.hero{background-position:65% center}
+    }
+    @media(max-width:560px){section{padding:74px 0}.hero-content{padding:54px 0}.cards{grid-template-columns:1fr}.card img{height:220px}.hero-badge{gap:16px}.hero-badge>div{width:44%}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">Da <span>Chef</span></a>
+      <button class="menu-btn" aria-label="Open menu">☰</button>
+      <div class="links">
+        <a href="#home">Home</a><a href="#specials">Specials</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#visit">Visit</a>
+        <a href="#visit" class="btn btn-primary">Book a Table</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Fresh • Local • Made with heart</span>
+        <h1>Good food.<br>Great moments.</h1>
+        <p>Welcome to Da Chef — where bold flavours, quality ingredients and warm hospitality come together on every plate.</p>
+        <div class="hero-actions"><a href="#menu" class="btn btn-primary">Explore Menu</a><a href="#visit" class="btn btn-outline">Visit Us</a></div>
+        <div class="hero-badge">
+          <div><strong>Fresh Daily</strong><span>Quality ingredients</span></div>
+          <div><strong>Made to Order</strong><span>Served hot & fresh</span></div>
+          <div><strong>Family Friendly</strong><span>Good vibes for everyone</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="specials">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Customer favourites</span><h2>Chef's Specials</h2><p>A few signature dishes made to turn an ordinary meal into something memorable.</p></div>
+      <div class="cards">
+        <article class="card reveal"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80" alt="Fresh signature bowl"><div class="card-body"><h3>Signature Bowl</h3><p>Fresh greens, grilled favourites and our house dressing.</p><div class="price">Chef's pick</div></div></article>
+        <article class="card reveal"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80" alt="Pizza"><div class="card-body"><h3>Stone-Baked Pizza</h3><p>Golden crust, rich tomato base, melted cheese and fresh toppings.</p><div class="price">Fresh from the oven</div></div></article>
+        <article class="card reveal"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80" alt="Burger"><div class="card-body"><h3>Da Chef Burger</h3><p>Juicy patty, crisp lettuce, cheese and our special house sauce.</p><div class="price">Big flavour</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Something for everyone</span><h2>Our Menu</h2><p>Sample menu — names and prices can be replaced with your real dishes anytime.</p></div>
+      <div class="tabs reveal"><button class="tab active" data-filter="all">All</button><button class="tab" data-filter="mains">Mains</button><button class="tab" data-filter="quick">Quick Bites</button><button class="tab" data-filter="drinks">Drinks</button></div>
+      <div class="menu-grid reveal">
+        <div class="menu-item" data-cat="mains"><div><h4>Chicken Fried Rice</h4><p>Wok fried rice, vegetables, egg and seasoned chicken.</p></div><span class="m-price">Rs. 1,250</span></div>
+        <div class="menu-item" data-cat="mains"><div><h4>Seafood Kottu</h4><p>Chopped roti, vegetables, egg and mixed seafood.</p></div><span class="m-price">Rs. 1,550</span></div>
+        <div class="menu-item" data-cat="mains"><div><h4>Chicken Pasta</h4><p>Creamy sauce, herbs, parmesan and grilled chicken.</p></div><span class="m-price">Rs. 1,400</span></div>
+        <div class="menu-item" data-cat="quick"><div><h4>Loaded Fries</h4><p>Crispy fries, cheese sauce and spicy chicken.</p></div><span class="m-price">Rs. 950</span></div>
+        <div class="menu-item" data-cat="quick"><div><h4>Classic Sandwich</h4><p>Toasted bread, chicken, cheese and fresh salad.</p></div><span class="m-price">Rs. 850</span></div>
+        <div class="menu-item" data-cat="drinks"><div><h4>Fresh Lime</h4><p>Fresh lime, ice and your choice of sweet or salted.</p></div><span class="m-price">Rs. 450</span></div>
+        <div class="menu-item" data-cat="drinks"><div><h4>Iced Coffee</h4><p>Chilled coffee, milk and a smooth creamy finish.</p></div><span class="m-price">Rs. 650</span></div>
+        <div class="menu-item" data-cat="quick"><div><h4>Chocolate Brownie</h4><p>Warm brownie with chocolate drizzle.</p></div><span class="m-price">Rs. 700</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about">
+      <div class="reveal"><img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1100&q=85" alt="Chef preparing food"></div>
+      <div class="reveal"><span class="eyebrow">Our story</span><h2>Made with care, served with pride.</h2><p>Da Chef is built around one simple idea: serve food people are excited to come back for. We focus on fresh ingredients, satisfying portions and friendly service.</p><p>Whether you are dropping in for a quick bite, meeting friends or sharing a family meal, our goal is to make it feel easy, welcoming and delicious.</p><div class="feature-row"><div class="feature"><strong>Fresh</strong><span>Ingredients selected with care</span></div><div class="feature"><strong>Fast</strong><span>Quick service without cutting corners</span></div><div class="feature"><strong>Friendly</strong><span>A warm place to enjoy your meal</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="container visit-grid">
+      <div class="reveal"><span class="eyebrow">Come hungry</span><h2>Visit Da Chef</h2><p>Add your real address, phone number, WhatsApp and social links here. The buttons can also be connected to online ordering later.</p><div class="hero-actions" style="margin-top:26px"><a class="btn btn-primary" href="tel:+94000000000">Call Now</a><a class="btn btn-outline" href="https://wa.me/94000000000" target="_blank" rel="noreferrer">WhatsApp</a></div></div>
+      <div class="info-box reveal">
+        <h3 style="font-size:1.7rem;margin-bottom:8px">Book a Table</h3>
+        <p>Complete the form to request a reservation.</p>
+        <form class="reservation-form" id="reservation-form">
+          <div><label for="booking-name">Full name</label><input id="booking-name" name="name" required maxlength="100" autocomplete="name" placeholder="Your name"></div>
+          <div><label for="booking-phone">Phone number</label><input id="booking-phone" name="phone" required maxlength="30" autocomplete="tel" placeholder="07X XXX XXXX"></div>
+          <div><label for="booking-date">Date</label><input id="booking-date" name="date" type="date" required></div>
+          <div><label for="booking-time">Time</label><input id="booking-time" name="time" type="time" required></div>
+          <div><label for="booking-guests">Number of guests</label><select id="booking-guests" name="guests" required><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option><option value="7">7 guests</option><option value="8">8 guests</option><option value="9">9 guests</option><option value="10">10 guests</option></select></div>
+          <div><label for="booking-notes">Special request (optional)</label><input id="booking-notes" name="notes" maxlength="500" placeholder="Any special requests"></div>
+          <div class="full"><button type="submit" class="btn btn-primary">Request Reservation</button><p id="booking-message" role="status" aria-live="polite"></p></div>
+        </form>
+        <div class="info-row"><span>Monday – Thursday</span><span>11:00 AM – 10:00 PM</span></div><div class="info-row"><span>Friday – Sunday</span><span>11:00 AM – 11:00 PM</span></div><div class="info-row"><span>Location</span><span>Sri Lanka</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="container footer-inner"><div class="brand">Da <span>Chef</span></div><div>© <span id="year"></span> Da Chef. All rights reserved.</div></div></footer>
+
+  <script>
+    const menuBtn=document.querySelector('.menu-btn'),links=document.querySelector('.links');
+    menuBtn.addEventListener('click',()=>links.classList.toggle('open'));
+    document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+    document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');
+      const f=tab.dataset.filter;document.querySelectorAll('.menu-item').forEach(i=>i.style.display=(f==='all'||i.dataset.cat===f)?'flex':'none');
+    }));
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.14});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    // Send table reservation to the backend API
+    const bookingForm = document.getElementById('reservation-form');
+    const bookingMessage = document.getElementById('booking-message');
+    const bookingDate = document.getElementById('booking-date');
+    if (bookingDate) bookingDate.min = new Date().toLocaleDateString('en-CA');
+    bookingForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      bookingMessage.textContent = 'Sending reservation request...';
+      const formData = new FormData(bookingForm);
+      const payload = Object.fromEntries(formData.entries());
+      payload.guests = Number(payload.guests);
+      try {
+        const response = await fetch('/api/reservations', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || 'Could not submit your request.');
+        bookingMessage.textContent = 'Reservation request received! We will contact you to confirm.';
+        bookingForm.reset();
+        if (bookingDate) bookingDate.min = new Date().toLocaleDateString('en-CA');
+      } catch (error) {
+        bookingMessage.textContent = error.message || 'Something went wrong. Please try again.';
+      }
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "da-chef-restaurant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Da Chef restaurant website with reservation backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  }
+}
